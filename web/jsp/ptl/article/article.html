@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta http-equiv="x-ua-compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="../../../asset/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../asset/css/default.css">
+    <link rel="stylesheet" href="../../../asset/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../../../asset/clock/clock.css">
+    <link rel="stylesheet" href="http://cdn.gbtags.com/summernote/0.5.2/summernote.css">
+    <title>首页</title>
+</head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <div class="navbar-brand"><a href="#">付小勺</a></div>
+        </div>
+        <div class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">主页</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">测试一<span class="caret"></span></a>
+                    <ul class="dropdown-menu" >
+                        <li><a href="#">test1</a></li>
+                        <li><a href="#">test1</a></li>
+                        <li><a href="#">test1</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">测试二<span class="caret"></span></a>
+                    <ul class="dropdown-menu col-menu-2">
+                        <li class="col-sm-6">
+                            <ul>
+                                <li class="dropdown-header"><span class="fa fa-group"></span>customers</li>
+                                <li><a href="#">test1</a></li>
+                                <li><a href="#">test1</a></li>
+                                <li class="dropdown-header"><span class="fa fa-gear"></span>config</li>
+                                <li><a href="#">test1</a></li>
+                                <li><a href="#">test1</a></li>
+                            </ul>
+                        </li>
+                        <li class="col-sm-6">
+                            <ul>
+                                <li class="dropdown-header"><span class="fa fa-group"></span>customers</li>
+                                <li><a href="#">test1</a></li>
+                                <li><a href="#">test1</a></li>
+                                <li class="dropdown-header"><span class="fa fa-gear"></span>config</li>
+                                <li><a href="#">test1</a></li>
+                                <li><a href="#">test1</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="headIcon dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <img src="../../../imgs/headIcon.jpg" class="img-rounded">
+                        FuShaoxing
+                        <span class="fa fa-sort-down"></span>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">个人资料</a></li>
+                            <li><a href="#">退出</a></li>
+                        </ul>
+                    </a>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right notice">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-envelope"></span><span class="badge">3</span></a>
+                    <ul class="dropdown-menu">
+                        <div class="email-list">
+                            <ul>
+                                <li>
+                                    <a href="#" title="xinyu2010@126.com">付韶兴</a>
+                                    <p>今天我加班，不用等我吃饭了。</p>
+                                    <span class="date">2 minites ago</span>
+                                </li>
+                                <li>
+                                    <a href="#" title="xinyu2010@126.com">付韶兴</a>
+                                    <p>由于今天身体不舒服需要请假一天，望批准。</p>
+                                    <span class="date">3 days ago</span>
+                                </li>
+                                <li>
+                                    <a href="#" title="xinyu2010@126.com">付韶兴</a>
+                                    <p>附件是今年的工作总结，请查收。</p>
+                                    <span class="date">1 year ago</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </ul>
+                </li>
+                <li><a href="#"><span class="fa fa-cab"></span><span class="badge">5</span></a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div id="wrapper">
+    <div class="sidebar">
+        <ul class="sidemenu">
+            <li>
+                <a href="../../index.jsp">
+                    <i class="fa fa-circle-o-notch fa-spin"></i>
+                    我的首页
+                </a>
+            </li>
+            <li class="haschild">
+                <a href="#">
+                    <i class="fa fa-spinner fa-spin"></i>
+                    网站内容
+                    <span class="fa fa-arrow-left"></span>
+                </a>
+                <ul class="submenu">
+                    <li class="active"><a href="#">文章管理</a></li>
+                    <li><a href="#">产品管理</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-cog fa-spin"></i>
+                    Date
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-refresh fa-spin"></i>
+                    Check
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div id="mainbody" class="container-fluid">
+        <!-- 标题、面包屑导航栏 -->
+        <div class="content-head">
+            <h2>文章管理<a>公司动态、新闻时事</a></h2>
+            <ul class="breadcrumb">
+                <li>
+                    <span class="fa fa-home"></span>
+                    <a href="../../index.jsp">Home</a>
+                </li>
+                <li><a>文章管理</a></li>
+            </ul>
+        </div>
+        <!-- 内容 -->
+        <div id="content">
+            <!--文章添加-->
+            <div class="spoon-panel">
+                <!-- 添加面板 -->
+                <div class="panel panel-default">
+                    <div class="panel-heading panel-closable">
+                        <span class="panel-title">文章添加</span>
+                        <span class="tools">
+                            <a class="fa fa-remove remove"></a>
+                            <a class="fa fa-refresh"></a>
+                        </span>
+                    </div>
+                    <div class="panel-body">
+                        <!-- 表单 -->
+                        <form id="addform" class="form-horizontal" modelAttribute="pojomodel" action="add.do" method="post" role="form">
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="menu1">主菜单</label>
+                                <div class="col-sm-4">
+                                    <select id="menu1" class="form-control">
+                                        <option value="${nav.id}">${nav.name}</option>
+                                    </select>
+                                </div>
+                                <!-- 标题 -->
+                                <label class="col-sm-1 control-label" for="title">标题</label>
+                                <div class="col-sm-4">
+                                    <input type="text" class="form-control" id="title" placeholder="标题"/>
+                                </div>
+                            </div>
+                            <!-- 内容 -->
+                            <div class="form-group">
+                                <label class="col-sm-2 control-label" for="editor">内容</label>
+                                <div class="col-sm-9">
+                                    <div id="editor"></div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="col-sm-1 col-sm-offset-10">
+                                    <a class="btn btn-primary form-control add-btn">提交</a>
+                                </div>
+                            </div>
+                        </form>
+                        <!-- 表单 -->
+                    </div>
+                </div>
+            </div>
+            <!-- 管理面板开始 -->
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">文章管理</h3>
+                </div>
+                <div id="panel-body">
+                    <!-- 查询表单开始 -->
+                    <form class="form-horizontal query-form" modelAttribute="condition" action="manage.do" method="post" role="form">
+                        <div class="form-cond">
+                            <div>
+                                <label class="control-label" for="navid">主菜单</label>
+                                <select id="navid" class="input-sm">
+                                    <option value="1">1</option>
+                                </select>
+                            </div>
+                            <div>
+                            <label class="control-label" for="menu2">副菜单</label>
+                            <select id="menu2" class="input-sm">
+                                <option value=""></option>
+                                <option value="news_in">公司动态</option>
+                                <option value="news_out">行业新闻</option>
+                                <option value="knowledge">货运常识</option>
+                            </select>
+                        </div>
+                        </div>
+                        <div class="btn-group">
+                            <a class="btn btn-primary query-btn">查询</a>
+                            <a class="btn btn-default spoon-btn" spoonhref="add.do">添加</a>
+                        </div>
+                        <div class="pagesize">
+                            <label class="control-label" for="menu2">显示：</label>
+                            <select path="rowSize" class="input-sm">
+                                <option value="10">10</option>
+                                <option value="20">20</option>
+                                <option value="30">30</option>
+                            </select>
+                        </div>
+                    </form>
+                    <!-- 查询表单结束 -->
+                    <!-- 数据展示表开始 -->
+                    <div class="table-responsive" id="result-div">
+                        <table class="table data-table table-hover">
+                            <!-- <caption>标题</caption> -->
+                            <thead>
+                            <tr>
+                                <!-- <th></th> -->
+                                <th data-field="title,chinese" style="width:30%;">标题</th>
+                                <th data-field="nav.name,chinese" style="width:10%;">导航</th>
+                                <th data-field="createtime" style="width:15%;">创建日期</th>
+                                <th data-field="author.name,chinese" style="width:10%;">创建人</th>
+                                <th data-field="visible" style="width:10%;">可见</th>
+                                <th class="disabled" style="width:15%;">操作</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="text-align:left;">${article.title}</td>
+                                    <td>${article.nav.name}</td>
+                                    <td>${fn:substring(article.createtime,0,10)}</td>
+                                    <td>${article.author.name}</td>
+                                    <td>是</td>
+                                    <td class="handle">
+                                        <a class="spoon-btn" spoonhref="mod.do?id=${article.id}"><span class="fa fa-edit"></span></a>
+                                        <a class="del-btn" data-del="del.do?id=${article.id},${article.title}"><span class="fa fa-trash-o"></span></a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="text-align:left;">${article.title}</td>
+                                    <td>${article.nav.name}</td>
+                                    <td>${fn:substring(article.createtime,0,10)}</td>
+                                    <td>${article.author.name}</td>
+                                    <td>是</td>
+                                    <td class="handle">
+                                        <a class="spoon-btn" spoonhref="mod.do?id=${article.id}"><span class="fa fa-edit"></span></a>
+                                        <a class="del-btn" data-del="del.do?id=${article.id},${article.title}"><span class="fa fa-trash-o"></span></a>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <div class="table-footer">
+                            <div class="page-info">Showing<a>1</a> to <a>6</a> of <a>6</a> entries</div>
+                            <div class="page" pagesize="20" pagenum="9"></div>
+                        </div>
+                    </div>
+                    <!-- 数据展示表结束 -->
+                </div>
+            </div>
+            <!-- 面板结束 -->
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="../../../asset/js/jquery-1.10.2.min.js"></script>
+<script type="text/javascript" src="../../../asset/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../../../asset/js/jquery.slimscroll.min.js"></script>
+<script type="text/javascript" src="../../../asset/js/main.js"></script>
+<script type="text/javascript" src="http://cdn.gbtags.com/summernote/0.5.2/summernote.min.js"></script>
+<script type="text/javascript">
+    $('#editor').summernote({height:500});
+</script>
+</body>
+</html>

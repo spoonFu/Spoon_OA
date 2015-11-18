@@ -1,0 +1,466 @@
+/*
+侧边栏颜色为：#9ea6b9   鼠标经过颜色为：#3A4459
+主窗体背景色为：#F6F6F6
+*/
+html {
+    height: 100%;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+/**************导航栏-开始******************/
+.navbar-brand {
+    width: 200px;
+}
+
+.navbar-default {
+    background-color: #2494f2;
+}
+
+.badge {
+    position: absolute;
+    top: 5px;
+    right: 2px;
+    background-color: red;
+    padding: 2px 5px;
+    font-size: 8px;
+}
+
+.dropdown-header {
+    color: #2083d6;
+    margin-top: 6px;
+    padding-left: 11px;
+    cursor: pointer;
+}
+
+.col-menu-2 {
+    min-width: 300px;
+    padding-bottom: 10px;
+    padding-top: 7px;
+}
+
+.dropdown-header {
+    padding-left: 8px !important;
+}
+
+.dropdown-menu > li, .dropdown-menu > li > ul {
+    padding: 0;
+    list-style: none;
+}
+
+.dropdown-menu > li > ul > li > a {
+    display: block;
+    cursor: pointer;
+    padding: 5px 0px 5px 20px;
+    color: black;;
+}
+
+.dropdown-menu > li > ul > li > a:hover, .dropdown-menu > li > a:hover {
+    background-color: #2494f2;
+    color: white;
+}
+
+.navbar-nav > li.open > a {
+    background-color: #36a3ff !important;
+    color: white !important;
+}
+
+.dropdown-menu {
+    border-top: 0 !important;
+}
+
+.notice > li.open > a:after {
+    position: absolute;
+    width: 8px;
+    content: '';
+    left: 50%;
+    margin-left: -8px;
+    bottom: 0;
+    border-color: transparent transparent white transparent;
+    border-style: dashed dashed solid dashed;
+    border-width: 8px;
+}
+
+.headIcon > a {
+    padding: 8px !important;
+    font-weight: bold;
+}
+
+.email-list > ul {
+    list-style: none;
+    padding: 0;
+}
+
+.email-list > ul > li {
+    padding: 10px 10px 10px 20px;
+    cursor: pointer;
+    border-bottom: 1px solid #ececec;
+}
+
+.email-list > ul > li:hover {
+    background-color: #F6F6F6;
+}
+
+.email-list > ul > li > a {
+    display: block;;
+    color: #000000 !important;
+    font-weight: bold;
+    min-width: 250px;
+}
+
+.email-list > ul > li > p {
+    font-size: 12px;
+    padding-top: 5px;
+    margin: 0;
+}
+
+.email-list > ul > li > span.date {
+    font-style: italic;
+    color: #999999;
+    font-size: 10px;
+}
+
+.headIcon > a > img {
+    height: 34px;
+    margin-right: 5px;
+}
+
+.headIcon > a > span {
+    margin-left: 5px;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus,
+.navbar-brand > a, .navbar-default .navbar-nav > li > a, .navbar-default .navbar-nav > li > a:hover {
+    color: white !important;
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > li > a:hover {
+    background-color: #36a3ff;
+}
+
+/**************导航栏-结束******************/
+#wrapper {
+    margin-top: 50px;
+    background-color: #3E495F;
+}
+
+/**************侧边栏-开始******************/
+.sidebar {
+    width: 200px;
+    float: left;
+    position: absolute;
+}
+
+.sidebar > ul, .sidebar > .sidemenu > li > ul {
+    padding-left: 0;
+}
+
+.sidebar > .sidemenu > li > ul {
+    display: none;
+}
+
+.sidebar > .sidemenu > li.active {
+    background-color: #3A4459;
+}
+
+.sidebar > .sidemenu > li > a {
+    display: block;
+    cursor: pointer;
+    font-weight: 600;
+    padding: 14px 20px 14px 25px;
+    color: #9ea6b9;;
+}
+
+.sidebar > .sidemenu > .haschild .submenu > li > a {
+    color: #9ea6b9;
+    padding: 7px 10px 7px 50px;
+    display: block;;
+}
+
+.sidebar > .sidemenu > li > a:hover, .sidebar > .sidemenu > .active > a,
+.sidebar > .sidemenu > .haschild .submenu > li > a:hover, .sidebar > .sidemenu > .haschild .submenu > .active > a {
+    color: white;
+    background-color: #3A4459;
+}
+
+.sidebar > .sidemenu > li, .sidebar > .sidemenu > li .submenu > li {
+    list-style: none;
+}
+
+.sidebar > .sidemenu > li > a > span {
+    float: right;
+}
+
+.sidebar > .sidemenu > li.active > a > span:before {
+    content: "\f107";
+}
+
+.sidebar > .sidemenu > li > a > span:before {
+    content: "\f104";
+}
+
+/**************侧边栏-结束******************/
+
+#mainbody {
+    margin-left: 200px;
+    /*background-color: #F6F6F6;*/
+    background-color: white;
+    padding: 20px;
+}
+
+/**************聊天窗口-开始******************/
+.nav-tabs .close {
+    float: right;
+    padding: 10px;
+}
+
+.chat-content {
+    padding-top: 15px;
+    position: absolute;
+    width: 100% !important;
+    border: 1px solid #dddddd;
+    border-top: 0;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+
+.chat-conv {
+    padding: 10px 20px;
+    min-height: 50px;
+}
+
+.chat-content .myself {
+    text-align: right;
+}
+
+.chat-content .myself > img {
+    right: 20px;
+}
+
+.chat-content img {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+}
+
+.chat-content .myself > .chat-box {
+    margin: 0 40px 0 0;
+    border: 1px solid #e3e3e3;
+    color: #666;
+    background-color: #ffffff;
+}
+
+.chat-content .myself > .chat-box:before {
+    content: '';
+    position: absolute;
+    left: auto;
+    margin-left: auto;
+    right: -8px;
+    margin-right: -8px;
+    border-color: transparent transparent transparent #e3e3e3;
+}
+
+.chat-content .chat-box {
+    word-break: break-word;
+    text-align: left;
+    position: relative;
+    display: inline-block;
+    padding: 8px 9px 8px 9px;
+    font-size: 12px;
+    border: 1px solid #2f7ee5;
+    color: #fff;
+    margin: 0 0 0 40px;
+    border-radius: 4px;
+    background-color: #43a2ff;
+}
+
+.chat-content .chat-box:before {
+    position: absolute;
+    width: 8px;
+    content: '';
+    left: -8px;
+    margin-left: -8px;
+    border-color: transparent #2f7ee5 transparent transparent;
+    border-style: dashed dashed dashed dashed;
+    border-width: 8px;
+}
+
+/**************聊天窗口-结束******************/
+
+/**************考勤-开始******************/
+.calendar {
+    padding: 10px;
+    border-radius: 6px;
+    background-color: #43a2ff;
+    text-align: center;
+    color: #ffffff;
+}
+
+.calendar > .date {
+    font-size: 60px;
+}
+
+.check-work > table {
+    width: 100%;
+}
+
+.check-work > table tr > td {
+    border: 1px solid #ddd;
+}
+
+.check-work > table tr > td:first-child {
+    text-align: center;
+    background-color: #F1F1F3;
+    min-width: 80px;
+    width: 10%;
+    padding: 10px 5px;
+}
+
+.check-work > table tr > td button {
+    float: right;
+    margin-right: 5%;
+    width: 20%;
+}
+
+.check-work > table tr > td .ok, .check-work > table tr > td .no {
+    font-size: 20px;
+    display: inline-block;;
+    margin: 0 2%;
+}
+
+.check-work > table tr > td .ok {
+    color: green;
+}
+
+.check-work > table tr > td .no {
+    color: red;
+}
+
+.check-work > table tr > td .ip {
+    color: grey;
+    font-size: 12px;
+    display: inline-block;
+    margin-left: 5%;
+}
+
+/**************考勤-结束******************/
+
+/**************增删改查-开始***************/
+#mainbody .content-head h2 {
+    margin-top: 0;
+}
+
+#mainbody .content-head h2 a {
+    font-size: 12px;;
+}
+
+/*查询条件列表*/
+.panel .query-form {
+    height: 35px;
+    margin: 10px 0;
+}
+
+.panel .query-form label {
+    padding-right: 0;
+}
+
+.panel .query-form select {
+    padding-left: 6px !important;
+}
+
+.panel .query-form .form-cond > div {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.panel .query-form .pagesize {
+    float: right;
+}
+
+.panel .query-form .form-cond {
+    float: left;
+    margin-right: 20px;
+}
+
+.panel .panel-heading .tools {
+    padding: 3px 5px 2px;
+    float: right;
+}
+
+.panel .panel-heading .tools a {
+    margin-left: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    float: right;
+}
+
+.form-group .form-control.btn {
+    min-width: 60px;
+}
+
+/*数据表*/
+.panel #panel-body {
+    padding: 20px 40px 40px;
+}
+
+.panel .data-table {
+    border-bottom: 2px solid #DDD;
+}
+
+.panel .data-table th, td {
+    text-align: center;
+}
+
+.panel .data-table .handle span {
+    cursor: pointer;
+    text-align: center;
+    margin: 0 5px;
+}
+
+.data-table .disabled {
+    cursor: not-allowed;
+}
+
+.data-table th {
+    cursor: pointer;
+}
+
+.data-table th:hover span {
+    color: #428bca;
+}
+
+/*页脚*/
+.table-footer > div {
+    display: inline-block;
+}
+
+.table-footer .page {
+    float: right;
+}
+
+.table-footer .pagination li a {
+    cursor: pointer;
+}
+
+.table-footer .page-info {
+    margin-top: 20px;
+}
+
+.table-footer .page-info a {
+    font-weight: bold;
+    text-decoration: none;
+}
+
+/**************增删改查-结束***************/
+@media (max-width: 425px) {
+    .sidebar {
+        display: none;
+    }
+
+    #mainbody {
+        margin-left: 0;
+    }
+}

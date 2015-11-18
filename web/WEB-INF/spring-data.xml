@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+    <context:component-scan base-package="com.spoon.dao"/>
+
+    <bean id="propertyConfigurer"
+          class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="file:${spoon.root}conf/jdbc.properties"/>
+    </bean>
+
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+          destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driver}"/>
+        <property name="url" value="${jdbc.url}"/>
+        <property name="username" value="${jdbc.username}"/>
+        <property name="password" value="${jdbc.password}"/>
+
+        <property name="maxIdle" value="${dbcp.maxIdle}"/>
+        <property name="maxActive" value="${dbcp.maxActive}"/>
+        <!-- 当defaultAutoCommit为false时必须使用sessionfactory的事务管理才能够将修改的数据提交 -->
+        <property name="defaultAutoCommit" value="false"/>
+        <!-- 不懂 -->
+        <property name="timeBetweenEvictionRunsMillis" value="3600000"/>
+        <property name="minEvictableIdleTimeMillis" value="3600000"/>
+    </bean>
+
+    <!-- AnnotationSessionFactoryBean使用注解来描述对象的持久方式，支持JPA注解(@Entity等) -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!-- 用来映射@table与@column的名字与数据库中的表名与字段名，可以通过@table(name="")来配置，不使用此规则。 如果命名有一定规律，可以通过继承此类，改写其中的tableName()和columnName()方法来指定。 -->
+        <property name="namingStrategy">
+            <bean class="org.hibernate.cfg.ImprovedNamingStrategy"/>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+                <!-- 跟踪显示sql语句，需要配置log4j，此sql显示的级别为debug -->
+                <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+                <!-- 规范化sql语句显示 -->
+                <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+                <prop key="hibernate.current_session_context_class">thread</prop>
+                <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
+                <!-- 自动在数据库创建表，当entity变化时，update表，保留原数据 <prop key="hibernate.hbm2ddl.auto">update</prop> -->
+                <!-- 是否使用查询缓存,如果不设置“查询缓存”， 那么hibernate只会缓存使用load()方法获得的单个持久化对象， 如果想缓存使用findall()、list()、Iterator()、createCriteria()、createQuery()等方法获得的数据结果集的话，
+                    就需要设置hibernate.cache.use_query_cache true启用了缓存查询，在第一次调用批量查询时将数据缓存到二级缓存里 -->
+                <!-- <prop key="hibernate.cache.use_query_cache">true</prop> <prop key="hibernate.cache.use_second_level_cache">
+                    true </prop> -->
+                <!-- 设置Hibernate的二级缓存接口类，这个类在Hibernate包中，此例中使用的第三方插件EhCache -->
+                <!-- <prop key="hibernate.cache.provider_class"> org.hibernate.cache.EhCacheProvider
+                    </prop> -->
+            </props>
+        </property>
+        <property name="packagesToScan" value="com.spoon.entity"/>
+    </bean>
+
+    <!-- 事务管理器配置,单数据源事务 -->
+    <bean id="txManager"
+          class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <!--<aop:config expose-proxy="true">
+        &lt;!&ndash; 只对业务逻辑层实施事务 &ndash;&gt;
+        <aop:pointcut id="txPointcut" expression="execution(* com.spoon.service.*.*(..))" />
+        &lt;!&ndash; Advisor定义，切入点和通知分别为txPointcut、txAdvice &ndash;&gt;
+        <aop:advisor pointcut-ref="txPointcut" advice-ref="txAdvice"/>
+    </aop:config>-->
+    <!--XML的方式配置事物-->
+    <!--<tx:advice id="txAdvice" transaction-manager="txManager">
+        <tx:attributes>
+            <tx:method name="*" propagation="REQUIRED" rollback-for="Exception"/>
+        </tx:attributes>
+    </tx:advice>
+    &lt;!&ndash; 定义事务入口 &ndash;&gt;
+    <aop:config>
+        <aop:pointcut id="txPointcut" expression="execution(* com.spoon.service..*.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+    </aop:config>
+
+    &lt;!&ndash; 开启AOP监听 只对当前配置文件有效 &ndash;&gt;
+    <aop:aspectj-autoproxy expose-proxy="true"/>-->
+    <!-- 使用annotation定义事务 -->
+    <tx:annotation-driven transaction-manager="txManager" proxy-target-class="true"/>
+</beans>
