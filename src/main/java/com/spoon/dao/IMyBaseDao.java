@@ -11,37 +11,43 @@ import com.spoon.condition.MyBaseCondition;
 
 /**
  * dao接口基类
- * 
+ *
  * @author:FuShaoxing
  * @date:2012-10-25 下午04:02:34
  * @version:1.0
  */
 public interface IMyBaseDao<T extends MyBaseEntity> {
-	public Serializable save(final T entity);
+    public Serializable save(final T entity);
 
-	public void saveOrUpdate(final T entity);
+    public void saveOrUpdate(final T entity);
 
-	public void update(final T entity);
+    public void update(final T entity);
 
-	public void delete(final T entity);
+    public void delete(final T entity);
 
-	public List<T> getAll();
+    public List<T> getAll();
 
-	public List<T> getAll(String orderSql);
+    public List<T> getAll(String orderSql);
 
-	public T findById(Serializable id);
+    public T findById(Serializable id);
 
-	public T findByProperty(String property, Object value);
+    public T findByProperty(String property, Object value);
 
-	public List<T> findsByProperty(String propertyName, Object value);
+    public List<T> findsByProperty(String propertyName, Object value);
 
-	public List<?> queryList(String hql);
+    public List<?> queryList(String hql);
 
-	public List<?> queryList(String hql, Object value);
+    public List<?> queryList(String hql, Object value);
 
-	public List<?> queryList(String hql, Object[] values);
+    public List<?> queryList(String hql, Object[] values);
 
-	public Pagination queryPage(String hql, Object[] params, MyBaseCondition cond);
+    public abstract List<T> queryNamedList(String paramString);
 
-	public Pagination queryPage(String hql, String countHql, Object[] paramValues, MyBaseCondition cond);
+    public abstract List<T> queryNamedList(String paramString, Object paramObject);
+
+    public abstract List<T> queryNamedList(String paramString, Object[] paramArrayOfObject);
+
+    public Pagination queryPage(String hql, Object[] params, MyBaseCondition cond);
+
+    public Pagination queryPage(String hql, String countHql, Object[] paramValues, MyBaseCondition cond);
 }

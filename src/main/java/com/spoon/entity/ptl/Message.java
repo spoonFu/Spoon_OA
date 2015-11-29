@@ -18,15 +18,17 @@ import java.util.Date;
 public class Message extends MyBaseEntity {
     private static final long serialVersionUID = 1L;
     private String name;
+    private String phone;
     private String email;
     private String message;
-    private boolean fresh = false;// 消息是否查看过
+    /** 是否已读 */
+    private boolean haveread = false;
     private String ip;
     private String position;
-    private Date datetime;
+    private String createtime;
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -34,7 +36,7 @@ public class Message extends MyBaseEntity {
     }
 
     public String getEmail() {
-        return email;
+        return this.email;
     }
 
     public void setEmail(String email) {
@@ -42,23 +44,15 @@ public class Message extends MyBaseEntity {
     }
 
     public String getMessage() {
-        return message;
+        return this.message;
     }
 
     public void setMessage(String message) {
         this.message = message;
     }
 
-    public boolean isFresh() {
-        return fresh;
-    }
-
-    public void setFresh(boolean fresh) {
-        this.fresh = fresh;
-    }
-
     public String getIp() {
-        return ip;
+        return this.ip;
     }
 
     public void setIp(String ip) {
@@ -66,25 +60,38 @@ public class Message extends MyBaseEntity {
     }
 
     public String getPosition() {
-        return position;
+        return this.position;
     }
 
     public void setPosition(String position) {
         this.position = position;
     }
 
-    public Date getDatetime() {
-        if (datetime == null)
-            return Calendar.getInstance().getTime();
-        return datetime;
+    public String getPhone() {
+        return this.phone;
     }
 
-    public void setDatetime(Date datetime) {
-        this.datetime = datetime;
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 
-    @Override
+    public boolean isHaveread() {
+        return this.haveread;
+    }
+
+    public void setHaveread(boolean haveread) {
+        this.haveread = haveread;
+    }
+
+    public String getCreatetime() {
+        return this.createtime;
+    }
+
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
+    }
+
     public String toString() {
-        return "name=" + name + ";email=" + email + ";message=" + message;
+        return "name=" + this.name + ";email=" + this.email + ";message=" + this.message;
     }
 }

@@ -10,33 +10,33 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * 
- * @version 1.0
  * @author 付韶兴
+ * @version 1.0
  * @update 2012-12-12 上午10:09:42
  */
 public interface IRoleManager {
-	public List<Role> findRoleByUser(User user);
+    List<Role> findRoleByUser(User user);
 
-	public Role findById(String id);
+    Role findById(String id);
 
-	public Role save(Role role);
+    Role save(Role role);
 
-	public void update(Role role);
+    void update(Role role);
 
-	public void deleteById(String id) throws ServiceException;
+    void deleteById(String id) throws ServiceException;
 
-	/**
-	 * 将所有角色按部门分类
-	 * @return
-	 */
-	public Map<String, List<Role>> findRoleMap();
+    /**
+     * 将所有角色按部门分类
+     *
+     * @return
+     */
+    Map<String, List<Role>> findRoleMap();
 
-	/**
-	 * 分页查询
-	 * @param cond
-	 * @param page
-	 * @return
-	 */
-	public Pagination queryPage(RoleCondition cond);
+    /**
+     * 分页查询
+     *
+     * @param cond
+     * @return
+     */
+    Pagination queryPage(RoleCondition cond);
 }

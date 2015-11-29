@@ -10,6 +10,7 @@ import javax.persistence.Table;
 
 /**
  * 类说明
+ *
  * @author FuShaoxing E-mail: xinyu2010@126.com
  * @version createTime：2014年11月2日 下午7:03:42
  */
@@ -17,24 +18,20 @@ import javax.persistence.Table;
 @Table(name = "cont_article")
 public class Article extends MyBaseEntity {
     private static final long serialVersionUID = 3918465518669602184L;
-
     private Navigation nav;
     private String title;
     private String content;
     private User author;
-    private String createtime;
-    private String titlepic;
-    private String minipic;
     private String tags;
     private String sign;
-    private String summary;
     private boolean visible = true;
-    private Integer viewcount = 0;
+    private Integer viewcount = Integer.valueOf(0);
+    private String createtime;
 
     @ManyToOne
-    @JoinColumn(name = "navid")
+    @JoinColumn(name = "nav_id")
     public Navigation getNav() {
-        return nav;
+        return this.nav;
     }
 
     public void setNav(Navigation nav) {
@@ -42,7 +39,7 @@ public class Article extends MyBaseEntity {
     }
 
     public String getTitle() {
-        return title;
+        return this.title;
     }
 
     public void setTitle(String title) {
@@ -50,7 +47,7 @@ public class Article extends MyBaseEntity {
     }
 
     public String getContent() {
-        return content;
+        return this.content;
     }
 
     public void setContent(String content) {
@@ -58,9 +55,9 @@ public class Article extends MyBaseEntity {
     }
 
     @ManyToOne
-    @JoinColumn(name = "author")
+    @JoinColumn(name = "user_id")
     public User getAuthor() {
-        return author;
+        return this.author;
     }
 
     public void setAuthor(User author) {
@@ -68,7 +65,7 @@ public class Article extends MyBaseEntity {
     }
 
     public String getCreatetime() {
-        return createtime;
+        return this.createtime;
     }
 
     public void setCreatetime(String createtime) {
@@ -76,7 +73,7 @@ public class Article extends MyBaseEntity {
     }
 
     public boolean isVisible() {
-        return visible;
+        return this.visible;
     }
 
     public void setVisible(boolean visible) {
@@ -84,31 +81,15 @@ public class Article extends MyBaseEntity {
     }
 
     public Integer getViewcount() {
-        return viewcount;
+        return this.viewcount;
     }
 
     public void setViewcount(Integer viewcount) {
         this.viewcount = viewcount;
     }
 
-    public String getTitlepic() {
-        return titlepic;
-    }
-
-    public void setTitlepic(String titlepic) {
-        this.titlepic = titlepic;
-    }
-
-    public String getMinipic() {
-        return minipic;
-    }
-
-    public void setMinipic(String minipic) {
-        this.minipic = minipic;
-    }
-
     public String getTags() {
-        return tags;
+        return this.tags;
     }
 
     public void setTags(String tags) {
@@ -116,25 +97,17 @@ public class Article extends MyBaseEntity {
     }
 
     public String getSign() {
-        return sign;
+        return this.sign;
     }
 
     public void setSign(String sign) {
         this.sign = sign;
     }
 
-    public String getSummary() {
-        return summary;
-    }
-
-    public void setSummary(String summary) {
-        this.summary = summary;
-    }
-
     public Article() {
     }
 
-    public Article(String id, Navigation nav, String title, String createtime, String titlepic, String minipic, Integer viewcount, boolean visible) {
+    public Article(String id, Navigation nav, String title, String createtime, Integer viewcount, boolean visible) {
         this.id = id;
         this.nav = nav;
         this.title = title;

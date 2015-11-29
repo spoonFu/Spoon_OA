@@ -1,6 +1,6 @@
 package com.spoon.web;
 
-import com.spoon.model.SessionProps;
+import com.spoon.dict.SessionProps;
 import com.spoon.service.security.MySessionListener;
 import org.springframework.security.authentication.AccountExpiredException;
 import org.springframework.security.authentication.BadCredentialsException;
@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * 登陆处理类
+ *
  * @author FuShaoxing E-mail: xinyu2010@126.com
  * @version createTime：2014-7-15 下午10:04:09
  */
@@ -32,8 +33,7 @@ public class LoginController extends MyBaseController {
         }
         // 如果登陆失败，则获取失败具体信息
         // 获取security放入session中的登陆错误对象
-        AuthenticationException exception = (AuthenticationException) session
-                .getAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
+        AuthenticationException exception = (AuthenticationException) session.getAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
         String message = exception.getMessage();
         if (exception instanceof UsernameNotFoundException) {
             message = "用户不存在!";

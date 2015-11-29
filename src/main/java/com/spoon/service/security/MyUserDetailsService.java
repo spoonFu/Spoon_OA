@@ -31,19 +31,17 @@ public class MyUserDetailsService implements UserDetailsService {
 
     @Override
     public User loadUserByUsername(String username) throws UsernameNotFoundException, DataAccessException {
-        com.spoon.entity.acl.User user = userDao.findUserByLoginName(username);
+        com.spoon.entity.acl.User user = this.userDao.findUserByLoginName(username);
         if (user == null) {
             throw new UsernameNotFoundException("The user with loginName:" + username + " can`t be found!");
         }
         String password = user.getPassword();
-        List<Role> roles = userRoleDao.listRoleByUserId(user.getId());
-        List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+        List<Role> roles = this.userRoleDao.listRoleByUserId(user.getId());
+        List<GrantedAuthority> authorities = new ArrayList();
         for (Role role : roles) {
-            // 用自己的权限标识定义一个security能识别的权限。
-            GrantedAuthority authority = new GrantedAuthorityImpl(role.getAuthority());
+            GrantedAuthority authority = new GrantedAuthorityImpl(role.getId());
             authorities.add(authority);
         }
         return new User(username, password, true, true, true, true, authorities);
     }
-
 }

@@ -74,7 +74,7 @@ public class MyBaseCondition {
 	/**
 	 * 添加排序
 	 * @param order
-	 * @param importan
+	 * @param important
 	 *            条件优先级
 	 */
 	public void addOrder(MyOrder order, boolean important) {

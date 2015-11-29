@@ -5,20 +5,20 @@ import com.spoon.service.ServiceException;
 import com.spoon.service.acl.IRoleManager;
 import com.spoon.service.acl.IUserManager;
 import com.spoon.condition.acl.UserCondition;
+import com.spoon.utils.JsonBinder;
 import com.spoon.web.MyBaseController;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.io.UnsupportedEncodingException;
 
 /**
  * 用户controller
+ *
  * @author FuShaoxing E-mail: xinyu2010@126.com
  * @version createTime：2014年11月23日 下午10:16:04
  */
@@ -104,5 +104,19 @@ public class UserController extends MyBaseController {
     public String confPost(@ModelAttribute("pojomodel") User user, HttpServletRequest req, Model model) {
         userManager.conf(user);
         return basedir + "/result";
+    }
+
+    @RequestMapping({"/userList.ajax"})
+    @ResponseBody
+    public String userListAjax() {
+        String retStr = "";
+        String userId = getCurrentUser().getId();
+        JsonBinder binder = JsonBinder.buildNormalBinder();
+        try {
+            retStr = new String(binder.toJson(userManager.listImUsers(userId)).getBytes("UTF-8"), "ISO-8859-1");
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+        return retStr;
     }
 }

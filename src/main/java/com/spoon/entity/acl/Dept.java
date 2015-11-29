@@ -7,6 +7,7 @@ import com.spoon.entity.MyBaseEntity;
 
 /**
  * 部门实体
+ *
  * @author FuShaoxing E-mail: xinyu2010@126.com
  * @version createTime：2014年12月7日 下午8:11:35
  */
@@ -14,14 +15,15 @@ import com.spoon.entity.MyBaseEntity;
 @Table(name = "acl_dept")
 public class Dept extends MyBaseEntity {
     private static final long serialVersionUID = 5650986835795776899L;
-
-    /** 部门名称 **/
+    /** 部门名称 */
     private String name;
-    /** 描述 **/
+    /** 部门描述 */
     private String desc;
+    /** 部门层次码 */
+    private String code;
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setName(String name) {
@@ -29,10 +31,18 @@ public class Dept extends MyBaseEntity {
     }
 
     public String getDesc() {
-        return desc;
+        return this.desc;
     }
 
     public void setDesc(String desc) {
         this.desc = desc;
+    }
+
+    public String getCode() {
+        return this.code;
+    }
+
+    public void setCode(String code) {
+        this.code = code;
     }
 }

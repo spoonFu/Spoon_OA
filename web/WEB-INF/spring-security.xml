@@ -10,8 +10,8 @@
         <!-- 定义登陆页面，取代security自动生成的登录页面和登录错误返回页面 -->
         <intercept-url pattern="/login.service" filters="none"/>
         <intercept-url pattern="/noright.service" filters="none"/>
-        <intercept-url pattern="/images/**" filters="none"/>
-        <intercept-url pattern="/js/**" filters="none"/>
+        <intercept-url pattern="/imgs/**" filters="none"/>
+        <intercept-url pattern="/asset/**" filters="none"/>
         <intercept-url pattern="/**/**.jsp" filters="none"/>
         <intercept-url pattern="/**/**.css" filters="none"/>
         <intercept-url pattern="/**/**.gif" filters="none"/>
@@ -25,11 +25,13 @@
         <!-- session会话管理配置 -->
         <!-- tomcat默认保存session30分钟，invalid-session-url设置会话过期时的返回页 -->
         <!-- <session-management invalid-session-url="/login.service" > -->
+
         <!-- max-session配置为1时第二次登陆会让第一次登陆失效 -->
         <!-- 如果添加了error-if-maximum-exceeded为true时会让第二次登陆报错 -->
-        <session-management>
+        <!--<session-management>
             <concurrency-control max-sessions="3" error-if-maximum-exceeded="true"/>
-        </session-management>
+        </session-management>-->
+
         <!-- <remember-me /> -->
         <!-- custom-filter是用来添加自定义过滤器的，对于过滤器的位置给出三种设置方式(before,position,after)。 before表示用在指定过滤器之前，after为之后，position为取代指定的过滤器。除了表示最前面的FIRST和表示最后面的LAST之外，这里的每个名称都对应着一个标准过滤器，要记住SESSION_CONTEXT_INTEGRATION_FILTER, EXCEPTION_TRANSLATION_FILTER和FILTER_SECURITY_INTERCEPTOR 三个过滤器是不可替换的，不能对它们使用position -->
         <!-- 自定义的validateCodeAuthenticationFilter取代了登陆页面的验证方法 -->
@@ -51,8 +53,7 @@
         <beans:property name="authenticationManager" ref="authenticationManager"/>
         <!-- AccessDecisionManager用于控制资源的访问权限 -->
         <beans:property name="accessDecisionManager" ref="myAccessDecisionManager"/>
-        <beans:property name="securityMetadataSource"
-                        ref="mySecurityMetadataSource"/>
+        <beans:property name="securityMetadataSource" ref="mySecurityMetadataSource"/>
         <beans:property name="observeOncePerRequest" value="false"/>
     </beans:bean>
 </beans:beans>

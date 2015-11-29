@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright (c) 2015 by FuShaoxing. All right reserved.
+  -->
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="com.spoon.dao.acl">
+    <!-- 根据层次码查询菜单-->
+    <sql-query name="resourceDao.findMenuLinkByCode">
+        <![CDATA[
+            from com.spoon.entity.acl.Resource where locate(code,?)=1 order by code
+        ]]>
+    </sql-query>
+
+    <!-- 根据用户id查询菜单-->
+    <sql-query name="resourceDao.findMenuByUserId">
+        <![CDATA[
+            from com.spoon.entity.acl.Resource
+            where id in (
+                select resource.id from com.spoon.entity.acl.RoleResource
+                where role.id in (
+                    select role.id from com.spoon.entity.acl.UserRole
+                    where user.id=?
+                )
+            )
+            order by code
+        ]]>
+    </sql-query>
+</hibernate-mapping>

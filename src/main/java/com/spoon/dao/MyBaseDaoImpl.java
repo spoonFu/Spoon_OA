@@ -56,6 +56,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 事务必须是开启的(Required)，否则获取不到
+     *
      * @return
      */
     public Session getSession() {
@@ -64,6 +65,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 获取新创建的Session，不在事务中，需要手动关闭
+     *
      * @return
      */
     public Session getNewSession() {
@@ -72,6 +74,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 根据id获取实体
+     *
      * @param id
      * @return
      */
@@ -84,6 +87,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 根据属性名和值查询对象，将返回查到的第一个对象。不存在时则返回null
+     *
      * @param propertyName
      * @param value
      * @return
@@ -102,6 +106,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 根据属性名和值查询对象列表
+     *
      * @param propertyName
      * @param value
      * @return
@@ -120,6 +125,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 查询集合
+     *
      * @param hql
      * @return
      */
@@ -130,6 +136,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 查询集合
+     *
      * @param hql
      * @param value 参数
      * @return
@@ -141,6 +148,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 查询集合
+     *
      * @param hql
      * @param values 参数
      * @return
@@ -154,7 +162,44 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
     }
 
     /**
+     * 根据hbm文件查询list
+     *
+     * @param queryName sql名称
+     * @return
+     */
+    public List<T> queryNamedList(String queryName) {
+        return queryNamedList(queryName, null);
+    }
+
+    /**
+     * 根据hbm文件查询list
+     *
+     * @param queryName sql名称
+     * @param value     参数值
+     * @return
+     */
+    public List<T> queryNamedList(String queryName, Object value) {
+        return queryNamedList(queryName, new Object[]{value});
+    }
+
+    /**
+     * 根据hbm文件查询list
+     *
+     * @param queryName sql名称
+     * @param values    参数值
+     * @return
+     */
+    public List<T> queryNamedList(String queryName, Object[] values) {
+        Session session = getNewSession();
+        String hql = session.getNamedQuery(queryName).getQueryString();
+        List<T> list = setParams(session.createQuery(hql), values).list();
+        session.close();
+        return list;
+    }
+
+    /**
      * 为查询设置参数
+     *
      * @param query
      * @param params 参数数组
      */
@@ -204,6 +249,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 获取全部对象
+     *
      * @return
      */
     @Override
@@ -213,6 +259,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 根据排序语句获取对象列表
+     *
      * @param orderSql 排序语句
      * @return
      */
@@ -231,7 +278,8 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 查询size，可用select count语句，亦可用查询list的语句
-     * @param hql 查询语句
+     *
+     * @param hql         查询语句
      * @param paramValues 参数数组
      * @return
      */
@@ -244,14 +292,15 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
         // 有可能是用count语句查询的
         Object obj = list.get(0);
         if (obj instanceof Long) {
-            return ((Long) list.get(0));
+            return ((Long) list.get(0)).longValue();
         }
         return 1;
     }
 
     /**
      * 查询size，可用select count语句，亦可用查询list的语句
-     * @param hql 查询语句
+     *
+     * @param hql        查询语句
      * @param paramValue 参数
      * @return
      */
@@ -261,6 +310,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 查询size，可用select count语句，亦可用查询list的语句
+     *
      * @param hql 查询语句
      * @return
      */
@@ -270,7 +320,8 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 分页查询的对象结果集
-     * @param hql 查询语句
+     *
+     * @param hql         查询语句
      * @param paramValues 参数数组
      * @param start
      * @param limit
@@ -290,7 +341,8 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 分页查询的对象结果集
-     * @param hql 查询语句
+     *
+     * @param hql        查询语句
      * @param paramValue 参数
      * @param start
      * @param limit
@@ -302,7 +354,8 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 分页查询的对象结果集
-     * @param hql 查询语句
+     *
+     * @param hql   查询语句
      * @param start
      * @param limit
      * @return
@@ -313,7 +366,8 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 分页查询
-     * @param hql 查询语句
+     *
+     * @param hql    查询语句
      * @param params 参数数组
      * @param cond
      * @return
@@ -324,9 +378,10 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 分页查询
-     * @param hql 查询语句
+     *
+     * @param hql      查询语句
      * @param countHql 查询count语句
-     * @param params 参数数组
+     * @param params   参数数组
      * @param cond
      * @return
      */
@@ -359,6 +414,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 执行更新语句
+     *
      * @param hql
      * @return
      */
@@ -368,6 +424,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 执行更新语句
+     *
      * @param hql
      * @param param
      * @return
@@ -378,6 +435,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
 
     /**
      * 执行更新语句
+     *
      * @param hql
      * @param params
      * @return

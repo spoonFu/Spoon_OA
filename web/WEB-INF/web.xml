@@ -20,6 +20,8 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>spring</servlet-name>
+        <url-pattern>*.chat</url-pattern>
+        <url-pattern>*.ajax</url-pattern>
         <url-pattern>*.do</url-pattern>
         <url-pattern>*.service</url-pattern>
         <url-pattern>*.pdf</url-pattern>
@@ -87,19 +89,25 @@
         <filter-name>hibernateOpenSessionInViewFilter</filter-name>
         <url-pattern>/j_spring_security_check</url-pattern>
     </filter-mapping>-->
-
     <!-- Listener-Start -->
     <listener>
         <listener-class>org.springframework.security.web.session.HttpSessionEventPublisher</listener-class>
     </listener>
     <!-- Listener-End -->
 
+    <jsp-config>
+        <taglib>
+            <taglib-uri>/tags/spoon</taglib-uri>
+            <taglib-location>/WEB-INF/tld/spoon-tags.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+
     <session-config>
-        <session-timeout>10</session-timeout>
+        <session-timeout>30</session-timeout>
     </session-config>
 
     <error-page>
         <error-code>404</error-code>
-        <location>/jsp/404.jsp</location>
+        <location>/WEB-INF/jsp/404.jsp</location>
     </error-page>
 </web-app>

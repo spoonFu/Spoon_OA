@@ -19,6 +19,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  * 网站管理
+ *
  * @author FuShaoxing E-mail: xinyu2010@126.com
  * @version createTime：2014年11月9日 上午11:19:49
  */
@@ -34,7 +35,9 @@ public class ArticleController extends MyBaseController {
     @RequestMapping(value = "/manage", method = RequestMethod.GET)
     public String manageGet(HttpSession session, HttpServletRequest req, Model model) {
         ArticleCondition cond = (ArticleCondition) getCond(session, ArticleCondition.class, null);
-        if (cond == null) cond = (ArticleCondition) getCond(session, ArticleCondition.class, new ArticleCondition());
+        if (cond == null) {
+            cond = (ArticleCondition) getCond(session, ArticleCondition.class, new ArticleCondition());
+        }
         setPage(model, articleManager.queryPage(cond));
         model.addAttribute("condition", cond);
         model.addAttribute("navs", navigationManager.findAll());
@@ -70,6 +73,7 @@ public class ArticleController extends MyBaseController {
     @RequestMapping(value = "/mod", method = RequestMethod.GET)
     public String modGet(@RequestParam("id") String id, HttpServletRequest req, Model model) {
         model.addAttribute("pojomodel", articleManager.findById(id));
+        model.addAttribute("navs", navigationManager.findAll());
         return basedir + "/mod";
     }
 

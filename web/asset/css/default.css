@@ -6,8 +6,24 @@ html {
     height: 100%;
 }
 
+body {
+    font-family: 'Microsoft YaHei' !important;
+}
+
 a {
     text-decoration: none !important;
+}
+
+a.normal {
+    color: #000 !important;
+}
+
+a.normal:hover {
+    color: #000 !important;
+}
+
+.rfloat {
+    float: right;
 }
 
 /**************导航栏-开始******************/
@@ -17,9 +33,10 @@ a {
 
 .navbar-default {
     background-color: #2494f2;
+    border: 0;
 }
 
-.badge {
+.nav .badge {
     position: absolute;
     top: 5px;
     right: 2px;
@@ -144,7 +161,7 @@ a {
 /**************导航栏-结束******************/
 #wrapper {
     margin-top: 50px;
-    background-color: #3E495F;
+    background-color: #272930;
 }
 
 /**************侧边栏-开始******************/
@@ -162,28 +179,34 @@ a {
     display: none;
 }
 
-.sidebar > .sidemenu > li.active {
-    background-color: #3A4459;
+.sidebar > .sidemenu > li.active > ul {
+    display: block;
 }
 
 .sidebar > .sidemenu > li > a {
+    border-top: 1px solid #32353e;
+    border-bottom: 1px solid #1a1c20;
     display: block;
     cursor: pointer;
-    font-weight: 600;
-    padding: 14px 20px 14px 25px;
-    color: #9ea6b9;;
+    padding: 12px 20px 12px 25px;
+    font-size: 15px;
+    color: #c9d4f6;
 }
 
 .sidebar > .sidemenu > .haschild .submenu > li > a {
-    color: #9ea6b9;
+    color: #c9d4f6;
     padding: 7px 10px 7px 50px;
-    display: block;;
+    display: block;
+    background-color: #1A1C20;
 }
 
-.sidebar > .sidemenu > li > a:hover, .sidebar > .sidemenu > .active > a,
+.sidebar > .sidemenu > li > a:hover, .sidebar > .sidemenu > .active > a {
+    background-color: #2A2C34;
+}
+
 .sidebar > .sidemenu > .haschild .submenu > li > a:hover, .sidebar > .sidemenu > .haschild .submenu > .active > a {
     color: white;
-    background-color: #3A4459;
+    background-color: #1E2025;
 }
 
 .sidebar > .sidemenu > li, .sidebar > .sidemenu > li .submenu > li {
@@ -210,85 +233,6 @@ a {
     background-color: white;
     padding: 20px;
 }
-
-/**************聊天窗口-开始******************/
-.nav-tabs .close {
-    float: right;
-    padding: 10px;
-}
-
-.chat-content {
-    padding-top: 15px;
-    position: absolute;
-    width: 100% !important;
-    border: 1px solid #dddddd;
-    border-top: 0;
-    background-color: #ffffff;
-    border-radius: 4px;
-}
-
-.chat-conv {
-    padding: 10px 20px;
-    min-height: 50px;
-}
-
-.chat-content .myself {
-    text-align: right;
-}
-
-.chat-content .myself > img {
-    right: 20px;
-}
-
-.chat-content img {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-}
-
-.chat-content .myself > .chat-box {
-    margin: 0 40px 0 0;
-    border: 1px solid #e3e3e3;
-    color: #666;
-    background-color: #ffffff;
-}
-
-.chat-content .myself > .chat-box:before {
-    content: '';
-    position: absolute;
-    left: auto;
-    margin-left: auto;
-    right: -8px;
-    margin-right: -8px;
-    border-color: transparent transparent transparent #e3e3e3;
-}
-
-.chat-content .chat-box {
-    word-break: break-word;
-    text-align: left;
-    position: relative;
-    display: inline-block;
-    padding: 8px 9px 8px 9px;
-    font-size: 12px;
-    border: 1px solid #2f7ee5;
-    color: #fff;
-    margin: 0 0 0 40px;
-    border-radius: 4px;
-    background-color: #43a2ff;
-}
-
-.chat-content .chat-box:before {
-    position: absolute;
-    width: 8px;
-    content: '';
-    left: -8px;
-    margin-left: -8px;
-    border-color: transparent #2f7ee5 transparent transparent;
-    border-style: dashed dashed dashed dashed;
-    border-width: 8px;
-}
-
-/**************聊天窗口-结束******************/
 
 /**************考勤-开始******************/
 .calendar {
@@ -357,9 +301,33 @@ a {
     font-size: 12px;;
 }
 
+#mainbody #content {
+    position: relative;
+}
+
+#mainbody #content .spoon-panel {
+    overflow: hidden;
+    width: 100%;
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    z-index: 3;
+    opacity: 0;
+    border-radius: 5px;
+    background: rgba(0, 0, 0, 0.7);
+}
+
+#mainbody #content .spoon-panel .panel {
+    position: relative;
+    margin-bottom: 0px;
+    top: -766px;
+    height: 100%;
+    /*left: 3000px;*/
+    /*margin-left: 100px;*/
+}
+
 /*查询条件列表*/
 .panel .query-form {
-    height: 35px;
     margin: 10px 0;
 }
 
@@ -371,18 +339,8 @@ a {
     padding-left: 6px !important;
 }
 
-.panel .query-form .form-cond > div {
-    display: inline-block;
-    margin-right: 10px;
-}
-
 .panel .query-form .pagesize {
     float: right;
-}
-
-.panel .query-form .form-cond {
-    float: left;
-    margin-right: 20px;
 }
 
 .panel .panel-heading .tools {
@@ -402,8 +360,9 @@ a {
 }
 
 /*数据表*/
-.panel #panel-body {
+.panel .panel-body {
     padding: 20px 40px 40px;
+    position: relative;
 }
 
 .panel .data-table {
@@ -441,6 +400,10 @@ a {
     float: right;
 }
 
+.table-footer .pagination {
+    float: right;
+}
+
 .table-footer .pagination li a {
     cursor: pointer;
 }
@@ -452,6 +415,21 @@ a {
 .table-footer .page-info a {
     font-weight: bold;
     text-decoration: none;
+}
+
+/********将summernote改为局部模态框模式*******/
+.modal-open {
+    /**防止summernote模态框滚动条消失**/
+    overflow: initial !important;
+    padding-right: 0 !important;
+}
+
+.note-editor .modal {
+    position: absolute !important;
+}
+
+.note-editor .modal-backdrop {
+    position: absolute !important;
 }
 
 /**************增删改查-结束***************/
