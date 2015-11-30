@@ -15,7 +15,7 @@ import javax.persistence.Table;
  * @version createTime：2014年11月2日 下午7:03:42
  */
 @Entity
-@Table(name = "cont_article")
+@Table(name="ptl_article")
 public class Article extends MyBaseEntity {
     private static final long serialVersionUID = 3918465518669602184L;
     private Navigation nav;

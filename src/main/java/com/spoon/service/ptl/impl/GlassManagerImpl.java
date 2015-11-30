@@ -29,7 +29,7 @@ public class GlassManagerImpl extends MyBaseService implements IGlassManager {
 
     @Override
     public Glass findById(String id) {
-        return (Glass) this.glassDao.findById(id);
+        return glassDao.findById(id);
     }
 
     @Override
@@ -40,17 +40,17 @@ public class GlassManagerImpl extends MyBaseService implements IGlassManager {
     @Override
     @Transactional
     public Glass save(Glass glass) {
-        String id = this.glassDao.save(glass).toString();
+        String id = glassDao.save(glass).toString();
         return findById(id);
     }
 
     @Override
     public List<Glass> findByCond(GlassCondition cond) {
-        return this.glassDao.findByCond(cond);
+        return glassDao.findByCond(cond);
     }
 
     @Override
     public Pagination queryPage(GlassCondition cond) {
-        return this.glassDao.queryPage(cond);
+        return glassDao.queryPage(cond);
     }
 }

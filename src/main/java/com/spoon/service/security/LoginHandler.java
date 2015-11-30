@@ -49,14 +49,12 @@ public class LoginHandler extends SavedRequestAwareAuthenticationSuccessHandler 
     @Transactional
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication)
             throws ServletException, IOException {
-        setAlwaysUseDefaultTargetUrl(true);
-        setDefaultTargetUrl("/manage.service");
         String loginIp = request.getRemoteAddr();
         if ("0:0:0:0:0:0:0:1".equals(loginIp))
             loginIp = "127.0.0.1";
         SystemLog log = new SystemLog();
         log.setIp(loginIp);
-        log.setTime(TimeUtils.currentString());
+        log.setCreatetime(TimeUtils.currentString());
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = null;
@@ -91,6 +89,7 @@ public class LoginHandler extends SavedRequestAwareAuthenticationSuccessHandler 
         WebUtils.setSessionAttribute(request, SessionProps.LOGIN_IP, ip);
         WebUtils.setSessionAttribute(request, SessionProps.LOGIN_TIME, TimeUtils.toTimeStr());
         WebUtils.setSessionAttribute(request, SessionProps.LOGIN_USER, loginUser);
+        WebUtils.setSessionAttribute(request, SessionProps.LOGIN_USERID, loginUser.getId());
         WebUtils.setSessionAttribute(request, SessionProps.LOGIN_NAME, loginUser.getName());
         WebUtils.setSessionAttribute(request, SessionProps.MENU_RESOURCE, resourceManager.findMenuByUserId(loginUser.getId()));
         this.logger.info("Set session attributes after login:{}", loginUser);

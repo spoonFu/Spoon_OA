@@ -14,7 +14,7 @@ import com.spoon.entity.sys.enums.LogType;
 
 /**
  * 记录用户操作的日志
- * 
+ *
  * @author:FuShaoxing
  * @date:2012-10-29 下午01:17:43
  * @version:1.0
@@ -22,58 +22,54 @@ import com.spoon.entity.sys.enums.LogType;
 @Entity
 @Table(name = "sys_log")
 public class SystemLog extends MyBaseEntity {
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	private String ip;
-	private String time;
-	private User user;
-	private String info;
-	private LogType type;
+    private String ip;
+    private String createtime;
+    private User user;
+    private String info;
+    private LogType type;
 
-	@Column
-	public String getIp() {
-		return ip;
-	}
+    public String getIp() {
+        return this.ip;
+    }
 
-	public void setIp(String ip) {
-		this.ip = ip;
-	}
+    public void setIp(String ip) {
+        this.ip = ip;
+    }
 
-	@Column
-	public String getTime() {
-		return time;
-	}
+    public String getCreatetime() {
+        return this.createtime;
+    }
 
-	public void setTime(String time) {
-		this.time = time;
-	}
+    public void setCreatetime(String createtime) {
+        this.createtime = createtime;
+    }
 
-	@Column
-	public String getInfo() {
-		return info;
-	}
+    public String getInfo() {
+        return this.info;
+    }
 
-	public void setInfo(String info) {
-		this.info = info;
-	}
+    public void setInfo(String info) {
+        this.info = info;
+    }
 
-	@Enumerated(EnumType.STRING)
-	@Column
-	public LogType getType() {
-		return type;
-	}
+    @Enumerated(EnumType.STRING)
+    public LogType getType() {
+        return this.type;
+    }
 
-	public void setType(LogType type) {
-		this.type = type;
-	}
+    public void setType(LogType type) {
+        this.type = type;
+    }
 
-	@ManyToOne
-	@JoinColumn(name = "user_id")
-	public User getUser() {
-		return user;
-	}
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    public User getUser() {
+        return this.user;
+    }
 
-	public void setUser(User user) {
-		this.user = user;
-	}
+    public void setUser(User user) {
+        this.user = user;
+    }
 }

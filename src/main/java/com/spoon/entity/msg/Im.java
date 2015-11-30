@@ -7,8 +7,10 @@ package com.spoon.entity.msg;
 import com.spoon.entity.MyBaseEntity;
 import com.spoon.entity.acl.User;
 
+import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 
 /**
  * 即时消息
@@ -16,6 +18,8 @@ import javax.persistence.ManyToOne;
  * @Author FuShaoxing(xinyu2010@126.com)
  * @Data 2015/11/28
  */
+@Entity
+@Table(name="msg_im")
 public class Im extends MyBaseEntity{
     private User fromUser;
     private User toUser;

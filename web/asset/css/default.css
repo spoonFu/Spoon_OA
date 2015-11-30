@@ -228,6 +228,7 @@ a.normal:hover {
 /**************侧边栏-结束******************/
 
 #mainbody {
+    min-height: 500px;
     margin-left: 200px;
     /*background-color: #F6F6F6;*/
     background-color: white;

@@ -181,7 +181,7 @@ public class MyBaseController {
         SystemLog log = new SystemLog();
         log.setUser(user);
         log.setIp(ip);
-        log.setTime(TimeUtils.currentString());
+        log.setCreatetime(TimeUtils.currentString());
         log.setType(type);
         log.setInfo(info);
         systemLogManager.save(log);

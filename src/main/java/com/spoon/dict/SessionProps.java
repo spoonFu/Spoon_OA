@@ -10,6 +10,9 @@ public class SessionProps {
     /** 登录用户 * */
     public static final String LOGIN_USER = "LoginUser";
 
+    /** 登录用户ID */
+    public static final String LOGIN_USERID = "LoginUserId";
+
     /** 用户名字 * */
     public static final String LOGIN_NAME = "LoginName";
 

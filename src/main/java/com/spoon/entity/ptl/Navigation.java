@@ -15,7 +15,7 @@ import java.util.List;
  * @version createTime：2014年12月28日 下午2:42:12
  */
 @Entity
-@Table(name = "cont_navigation")
+@Table(name="ptl_nav")
 public class Navigation extends MyBaseEntity {
     private static final long serialVersionUID = 6706526455267075443L;
 
@@ -43,7 +43,7 @@ public class Navigation extends MyBaseEntity {
         this.url = url;
     }
 
-    @Column(name = "level_code")
+    @Column
     public String getCode() {
         return code;
     }

@@ -53,7 +53,7 @@
         </property>
         <property name="mappingResources">
             <list>
-                <value>/com/spoon/hbm/acl.hbm.xml</value>
+                <value>hbm/acl.hbm.xml</value>
             </list>
         </property>
         <property name="packagesToScan" value="com.spoon.entity"/>

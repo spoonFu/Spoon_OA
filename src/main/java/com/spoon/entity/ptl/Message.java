@@ -14,7 +14,7 @@ import java.util.Date;
  * @version createTime：2014-5-11 下午08:22:56
  */
 @Entity
-@Table(name = "cont_message")
+@Table(name="ptl_message")
 public class Message extends MyBaseEntity {
     private static final long serialVersionUID = 1L;
     private String name;
