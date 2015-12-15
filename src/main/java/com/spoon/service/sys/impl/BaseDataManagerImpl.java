@@ -28,4 +28,11 @@ public class BaseDataManagerImpl extends MyBaseService implements IBaseDataManag
     public List<BaseData> findByGid(String gid, boolean flag) {
         return baseDataDao.findByGid(gid, flag);
     }
+
+    @Override
+    public BaseData findById(String id) {
+        return baseDataDao.findById(id);
+    }
+
+
 }

@@ -10,6 +10,7 @@ import java.util.Date;
 
 /**
  * 时间工具类(时间格式yyyy-MM-dd HH:mm:ss)
+ *
  * @author FuShaoxing E-mail: xinyu2010@126.com
  * @version createTime：2014年11月18日 下午8:16:04
  */
@@ -30,23 +31,41 @@ public class TimeUtils {
 
     public static final DateFormat YEAR_FORMAT = new SimpleDateFormat("yyyy");
 
+    public static final DateFormat TIME_FORMAT = new SimpleDateFormat("HH:mm:ss");
+
     /**
-     * 获取当前时间字符串
+     * 获取当前日期时间字符串
+     *
      * @return
      */
-    public static String currentString() {
+    public static String currentDateTimeStr() {
         return NORMAL_FORMAT.format(new Date());
+    }
+
+    /**
+     * 获取当前日期字符串
+     *
+     * @return
+     */
+    public static String currentDateStr() {
+        return DAY_FORMAT.format(new Date());
+    }
+
+    /**
+     * 获取当前时间字符串
+     *
+     * @return
+     */
+    public static String currentTimeStr() {
+        return TIME_FORMAT.format(new Date());
     }
 
     /**
      * 取得一天首尾的时间字符串。（yyyy-MM-dd HH:mm:ss）
      *
-     * @param year
-     *            年
-     * @param month
-     *            月（1-12）
-     * @param day
-     *            日（1-31）
+     * @param year  年
+     * @param month 月（1-12）
+     * @param day   日（1-31）
      * @return [0]放天首字符串，[1]放天尾字符串。
      */
     public static String[] getInDay(int year, int month, int day) {
@@ -63,10 +82,8 @@ public class TimeUtils {
     /**
      * 取得一月首尾的时间字符串。（yyyy-MM-dd）
      *
-     * @param year
-     *            年
-     * @param month
-     *            月（1-12）
+     * @param year  年
+     * @param month 月（1-12）
      * @return [0]放月首字符串，[1]放月尾字符串。
      */
     public static String[] getInMonth(int year, int month) {
@@ -83,8 +100,7 @@ public class TimeUtils {
     /**
      * 取得一年首尾的时间字符串。（yyyy-MM）
      *
-     * @param year
-     *            年
+     * @param year 年
      * @return [0]放年首字符串，[1]放年尾字符串。
      */
     public static String[] getInYear(int year) {
@@ -101,12 +117,9 @@ public class TimeUtils {
     /**
      * 取得日时间字符串。（yyyy-MM-dd）
      *
-     * @param year
-     *            年
-     * @param month
-     *            月（1-12）
-     * @param day
-     *            日（1-31）
+     * @param year  年
+     * @param month 月（1-12）
+     * @param day   日（1-31）
      * @return 返回指定年月日的日时间字符串。
      */
     public static String getDayStr(int year, int month, int day) {
@@ -119,10 +132,8 @@ public class TimeUtils {
     /**
      * 取得月时间字符串。（yyyy-MM）
      *
-     * @param year
-     *            年
-     * @param month
-     *            月（1-12）
+     * @param year  年
+     * @param month 月（1-12）
      * @return 返回指定年月的月时间字符串
      */
     public static String getMonthStr(int year, int month) {
@@ -135,8 +146,7 @@ public class TimeUtils {
     /**
      * 取得年时间字符串。（yyyy）
      *
-     * @param year
-     *            年
+     * @param year 年
      * @return 返回指定年的年时间字符串
      */
     public static String getYearStr(int year) {
@@ -149,8 +159,7 @@ public class TimeUtils {
     /**
      * 取得时间字符串。（yyyy-MM-dd HH:mm:ss:zzz）
      *
-     * @param cal
-     *            时间
+     * @param cal 时间
      * @return 指定毫秒数得到的时间字符串。
      */
     public static String toTotalTimeStr(Calendar cal) {
@@ -173,8 +182,7 @@ public class TimeUtils {
     /**
      * 取得时间字符串。（yyyy-MM-dd HH:mm:ss）
      *
-     * @param time
-     *            时间（毫秒数）
+     * @param time 时间（毫秒数）
      * @return 指定毫秒数得到的时间字符串。
      */
     public static String toTimeStr(long time) {
@@ -232,8 +240,7 @@ public class TimeUtils {
     /**
      * 取得日时间字符串。（yyyy-MM-dd）
      *
-     * @param time
-     *            时间（毫秒数）
+     * @param time 时间（毫秒数）
      * @return 指定时间的日时间字符串。
      */
     public static String toDayStr(long time) {
@@ -246,8 +253,7 @@ public class TimeUtils {
     /**
      * 取得日时间字符串。（yyyy-MM-dd）
      *
-     * @param cal
-     *            时间（毫秒数）
+     * @param cal 时间（毫秒数）
      * @return 指定时间的日时间字符串。
      */
     public static String toDayStr(Calendar cal) {
@@ -270,8 +276,7 @@ public class TimeUtils {
     /**
      * 取得月时间字符串。（yyyy-MM）
      *
-     * @param time
-     *            时间（毫秒数）
+     * @param time 时间（毫秒数）
      * @return 指定时间的月时间字符串。
      */
     public static String toMonthStr(long time) {
@@ -294,8 +299,7 @@ public class TimeUtils {
     /**
      * 取得年时间字符串。（yyyy）
      *
-     * @param time
-     *            时间（毫秒数）
+     * @param time 时间（毫秒数）
      * @return 指定时间的年时间字符串。
      */
     public static String toYearStr(long time) {
@@ -318,10 +322,8 @@ public class TimeUtils {
     /**
      * 由时间字符串取得对应时间的Calendar
      *
-     * @param format
-     *            时间字符串对应的格式
-     * @param timeStr
-     *            时间字符串
+     * @param format  时间字符串对应的格式
+     * @param timeStr 时间字符串
      * @return 时间字符串对应的Calendar，如果时间字符串与格式不对应，将返回null
      */
     public static Calendar getCalendar(DateFormat format, String timeStr) {
@@ -395,13 +397,14 @@ public class TimeUtils {
     }
 
     /**
-     *
      * @param cal
      * @return
      */
     public static Calendar[] getBetweenDay(Calendar cal) {
         Calendar[] cals = new Calendar[2];
-        if (cal == null) cal = Calendar.getInstance();
+        if (cal == null) {
+            cal = Calendar.getInstance();
+        }
         int year = cal.get(Calendar.YEAR);
         int month = cal.get(Calendar.MONTH);
         int date = cal.get(Calendar.DAY_OF_MONTH);
@@ -441,21 +444,27 @@ public class TimeUtils {
     }
 
     public static boolean isForward(Calendar beg, Calendar end) {
-        if (beg == null || end == null) return false;
-        if (end.getTime().getTime() - beg.getTime().getTime() >= 0) return true;
-        else return false;
+        if (beg == null || end == null) {
+            return false;
+        }
+        if (end.getTime().getTime() - beg.getTime().getTime() >= 0) {
+            return true;
+        } else {
+            return false;
+        }
     }
 
     public static java.sql.Date[] getDates(Calendar[] cals) {
         java.sql.Date[] dates = new java.sql.Date[2];
-        if (cals == null || cals.length != 2) return dates;
+        if (cals == null || cals.length != 2) {
+            return dates;
+        }
         dates[0] = new java.sql.Date(cals[0].getTimeInMillis());
         dates[1] = new java.sql.Date(cals[1].getTimeInMillis());
         return dates;
     }
 
     /**
-     *
      * @param year
      * @param month
      * @return
@@ -487,22 +496,36 @@ public class TimeUtils {
     }
 
     private static void checkPara(int year, int month, int day) {
-        if (year < 1) throw new RuntimeException("年时间参数错误。");
-        if (month < 1 || month > 12) throw new RuntimeException("月时间参数错误。");
-        if (day < 1 || day > 31) throw new RuntimeException("日时间参数错误。");
+        if (year < 1) {
+            throw new RuntimeException("年时间参数错误。");
+        }
+        if (month < 1 || month > 12) {
+            throw new RuntimeException("月时间参数错误。");
+        }
+        if (day < 1 || day > 31) {
+            throw new RuntimeException("日时间参数错误。");
+        }
     }
 
     private static void checkPara(int year, int month) {
-        if (year < 1) throw new RuntimeException("年时间参数错误。");
-        if (month < 1 || month > 12) throw new RuntimeException("月时间参数错误。");
+        if (year < 1) {
+            throw new RuntimeException("年时间参数错误。");
+        }
+        if (month < 1 || month > 12) {
+            throw new RuntimeException("月时间参数错误。");
+        }
     }
 
     private static void checkPara(int year) {
-        if (year < 1) throw new RuntimeException("年时间参数错误。");
+        if (year < 1) {
+            throw new RuntimeException("年时间参数错误。");
+        }
     }
 
     private static void checkLong(long time) {
-        if (time < 0) throw new RuntimeException("时间参数错误。");
+        if (time < 0) {
+            throw new RuntimeException("时间参数错误。");
+        }
     }
 
 }

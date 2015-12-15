@@ -268,6 +268,7 @@ a.normal:hover {
     float: right;
     margin-right: 5%;
     width: 20%;
+    min-width: 55px;
 }
 
 .check-work > table tr > td .ok, .check-work > table tr > td .no {
@@ -361,8 +362,8 @@ a.normal:hover {
 }
 
 /*数据表*/
-.panel .panel-body {
-    padding: 20px 40px 40px;
+.content .panel .panel-body {
+    padding: 20px 40px;
     position: relative;
 }
 
@@ -370,7 +371,7 @@ a.normal:hover {
     border-bottom: 2px solid #DDD;
 }
 
-.panel .data-table th, td {
+.panel .data-table th, .panel .data-table td {
     text-align: center;
 }
 

@@ -23,4 +23,12 @@ public interface IBaseDataManager {
      * @return
      */
     List<BaseData> findByGid(String gid, boolean flag);
+
+    /**
+     * 根据主键查询基础数据
+     *
+     * @param id 主键
+     * @return
+     */
+    BaseData findById(String id);
 }

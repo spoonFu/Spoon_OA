@@ -40,6 +40,7 @@ public class MyBaseController {
     protected IUserManager userManager;
     @Autowired
     protected IResourceManager resourceManager;
+    protected final String note = "/note";
 
     /** 传往前台的pagination名称 */
     private String pagnname = "pagn";
@@ -74,7 +75,15 @@ public class MyBaseController {
         // 查询session中上次查询条件
         MyBaseCondition cond = (MyBaseCondition) session.getAttribute(clazz.getSimpleName());
         // 当page为null时，在session中找已存在的查询条件
-        if (page == null) {
+        if (page == null && cond == null) {
+            try {
+                cond = (MyBaseCondition) clazz.newInstance();
+                session.setAttribute(clazz.getSimpleName(), cond);
+            } catch (Exception e) {
+                logger.error("查询条件初始化错误:" + e.getMessage());
+            }
+            return cond;
+        } else if (page == null) {
             return cond;
         }
         if (cond != null && page.isPageFlag()) {
@@ -181,7 +190,7 @@ public class MyBaseController {
         SystemLog log = new SystemLog();
         log.setUser(user);
         log.setIp(ip);
-        log.setCreatetime(TimeUtils.currentString());
+        log.setCreatetime(TimeUtils.currentDateTimeStr());
         log.setType(type);
         log.setInfo(info);
         systemLogManager.save(log);

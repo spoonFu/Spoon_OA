@@ -54,7 +54,7 @@ public class LoginHandler extends SavedRequestAwareAuthenticationSuccessHandler 
             loginIp = "127.0.0.1";
         SystemLog log = new SystemLog();
         log.setIp(loginIp);
-        log.setCreatetime(TimeUtils.currentString());
+        log.setCreatetime(TimeUtils.currentDateTimeStr());
 
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String username = null;

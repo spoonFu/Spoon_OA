@@ -19,8 +19,7 @@ public class RoleDaoImpl extends MyBaseDaoImpl<Role> implements IRoleDao {
 
 	@Override
 	public Pagination queryPage(RoleCondition cond) {
-		StringBuffer hql = new StringBuffer(" from "+clazz.getName()+" where 1=1");
-		Pagination page = queryPage(hql.toString(), new Object[] {}, cond);
+		Pagination page = queryPage(defHql, new Object[] {}, cond);
 		return page;
 	}
 

@@ -39,6 +39,7 @@ import com.spoon.condition.MyBaseCondition;
 public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDao<T> {
     protected Logger logger = LoggerFactory.getLogger(getClass());
     protected Class<T> clazz;
+    protected String defHql;
     private static String COUNT_STR = "select count(id) ";
 
     @Autowired
@@ -52,6 +53,7 @@ public abstract class MyBaseDaoImpl<T extends MyBaseEntity> implements IMyBaseDa
             throw new IllegalArgumentException("The BseEntity must be appointed!");
         }
         this.clazz = parameterizedClass;
+        defHql = "from "+clazz.getName()+" where 1=1";
     }
 
     /**

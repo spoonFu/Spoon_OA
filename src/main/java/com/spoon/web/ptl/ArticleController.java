@@ -26,7 +26,7 @@ import javax.servlet.http.HttpSession;
 @Controller
 @RequestMapping(value = "/ptl/article")
 public class ArticleController extends MyBaseController {
-    String basedir = "/ptl/article";
+    private final String basedir = "/ptl/article";
     @Autowired
     private IArticleManager articleManager;
     @Autowired
