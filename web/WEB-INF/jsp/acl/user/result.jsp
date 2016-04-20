@@ -42,10 +42,9 @@
                         <a class="spoon-btn" spoonhref="mod.do?id=${user.id}"><span
                                 class="fa fa-edit"></span></a>
                     </sec:authorize>
-                    <a class="spoon-btn" title="修改" spoonhref="mod.do?id=${user.id}"><span
-                            class="fa fa-edit"></span></a>
-                    <a class="del-btn" title="删除" delhref="del.do?id=${user.id}" delname="${user.name}"><span
-                            class="fa fa-trash-o"></span></a>
+                    <a class="spoon-btn" title="配置" spoonhref="conf.do?id=${user.id}"><span class="fa fa-wrench"></span></a>
+                    <a class="spoon-btn" title="修改" spoonhref="mod.do?id=${user.id}"><span class="fa fa-edit"></span></a>
+                    <a class="del-btn" title="删除" delhref="del.do?id=${user.id}" delname="${user.name}"><span class="fa fa-trash-o"></span></a>
                 </td>
             </tr>
         </c:forEach>
