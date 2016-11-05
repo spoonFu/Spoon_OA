@@ -1,0 +1,298 @@
+/**
+ * 页面即时聊天对话框样式
+ */
+.chat-div {
+    position: absolute;
+}
+
+.chat-div ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chat-ident {
+    cursor: pointer;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    height: 40px;
+    padding: 6px 20px 6px 6px;
+    background-color: #d9d9d9;
+    z-index: 1000;
+}
+
+.chat-ident span {
+    font-weight: bold;
+    padding: 0 5px;
+}
+
+.chat-ident > * {
+    display: inline-block;
+}
+
+.chat-panel {
+    display: none;
+    border: 1px #d9d9d9 solid;
+    position: fixed;
+    width: 562px;
+    height: 400px;
+    bottom: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.chat-sidebar {
+    background-color: #fff;
+    width: 160px;
+    height: 100%;
+    float: left;
+    display: inline-block;
+    border-right: 1px #d9d9d9 solid;
+    overflow: hidden;
+}
+
+.chat-sidebar .search {
+    padding: 5px;
+    border-bottom: 1px #d9d9d9 solid;
+}
+
+.chat-sidebar .search .input-group-btn .btn {
+    padding: 5px 7px;
+}
+
+.chat-sidebar .user-recent {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.chat-sidebar .user-recent > li, .chat-sidebar .user-list ul > li {
+    cursor: pointer;
+    padding: 4px 8px;
+}
+
+.chat-sidebar .user-recent > li:hover, .chat-sidebar .user-recent > li.active, .chat-sidebar .user-list ul > li:hover {
+    background-color: #d9d9d9;
+}
+
+.chat-sidebar .user-recent > li > div, .chat-sidebar .user-list ul > li > div {
+    display: inline-block;
+}
+
+.chat-sidebar .user-recent > li > p, .chat-sidebar .user-list ul > li > p {
+    display: inline-block;
+    line-height: 30px;
+    margin: 0;
+    width: 90px;
+}
+
+.chat-sidebar .user-recent > li > div > img, .chat-sidebar .user-list ul > li > div > img {
+    width: 30px;
+    height: 30px;
+}
+
+.chat-sidebar .user-recent > li > div > a {
+    display: none;
+    line-height: 30px;
+    font-size: 18px;
+    color: #808080;
+    font-weight: bold;
+}
+
+.chat-sidebar .user-recent > li:hover > div > a {
+    display: inline-block;
+}
+
+.chat-sidebar .user-recent > li > div > a:hover {
+    color: #428bca;
+}
+
+.chat-sidebar .user-recent > li > .dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    border-radius: 8px;
+    background-color: red;
+}
+
+.chat-sidebar .user-list {
+    border-top: 1px #d9d9d9 solid;
+    user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -webkit-user-select: none;
+}
+
+.chat-sidebar .user-list > .pull-up, .chat-sidebar .user-list > .pull-down {
+    text-align: center;
+    cursor: pointer;
+}
+
+.chat-sidebar .user-list > div:hover {
+    background-color: #d9d9d9
+}
+
+.chat-content {
+    width: 400px;
+    background-color: #fff;
+    display: inline-block;
+}
+
+.chat-content .chat-head {
+    height: 41px;
+    border-bottom: 1px #d9d9d9 solid;
+}
+
+.chat-content .chat-head .name {
+    line-height: 41px;
+    padding-left: 10px;
+    font-weight: bold;
+    line-height: 41px;
+}
+
+.chat-content .chat-head .close {
+    padding: 8px 10px;
+}
+
+.chat-content .chat-body {
+    background-color: #F2F2F5;
+    width: 100%;
+    height: 320px;
+}
+
+.chat-content .chat-body .chat-pane {
+    display: none;
+}
+
+.chat-content .chat-body .in {
+    display: block;
+}
+
+.chat-content .chat-pane .chat-conv {
+    position: relative;
+    padding: 10px 10px;
+    min-height: 50px;
+}
+
+.chat-content .chat-pane .myself {
+    text-align: right;
+}
+
+.chat-content .chat-pane .myself > img {
+    right: 10px;
+}
+
+.chat-content .chat-pane .chat-conv > img {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+}
+
+.chat-content .chat-pane .myself > .chat-box {
+    margin: 0 40px 0 0;
+    border: 1px solid #e3e3e3;
+    color: #666;
+    background-color: #ffffff;
+}
+
+.chat-content .chat-pane .myself > .chat-box:before {
+    content: '';
+    position: absolute;
+    left: auto;
+    margin-left: auto;
+    right: -8px;
+    margin-right: -8px;
+    border-color: transparent transparent transparent #e3e3e3;
+}
+
+.chat-content .chat-pane .chat-box {
+    text-align: left;
+    position: relative;
+    display: inline-block;
+    padding: 8px 9px 8px 9px;
+    font-size: 12px;
+    border: 1px solid #2f7ee5;
+    color: #fff;
+    margin: 0 0 0 40px;
+    border-radius: 4px;
+    background-color: #43a2ff;
+}
+
+.chat-content .chat-pane .chat-box:before {
+    position: absolute;
+    width: 8px;
+    content: '';
+    left: -8px;
+    margin-left: -8px;
+    border-color: transparent #2f7ee5 transparent transparent;
+    border-style: dashed solid dashed dashed;
+    border-width: 8px;
+}
+
+.chat-content .chat-foot > * {
+    display: inline-block;
+}
+
+.chat-content .chat-foot .chat-face {
+    z-index: 100;
+    display: none;
+    position: absolute;
+    right: -60px;
+    width: 283px;
+    bottom: 29px;
+    background-color: white;
+    padding: 10px;
+    border: 1px solid #d9d9d9;
+    box-shadow: 0 4px 20px 1px rgba(0, 0, 0, 0.2);
+}
+
+.chat-content .chat-foot .open .chat-face {
+    display: block;
+}
+
+.chat-content .chat-foot .face {
+    padding: 6px 0;
+    position: relative;
+}
+
+.chat-content .chat-foot .face.open:after {
+    z-index: 100;
+    position: absolute;
+    width: 8px;
+    content: '';
+    left: 50%;
+    margin-left: -8px;
+    top: 0;
+    border-color: white transparent transparent transparent;
+    border-style: solid dashed dashed dashed;
+    border-width: 8px;
+}
+
+.chat-content .chat-foot .chat-face > ul > li {
+    padding: 3px;
+    border: 1px solid #d9d9d9;
+    cursor: pointer;
+    float: left;
+    margin: -1px 0 0 -1px;
+}
+
+.chat-content .chat-foot .chat-face > ul > li:hover {
+    border: 1px solid #428BCA;
+    position: relative; /*使边框上浮，否则border会被相邻元素挡住*/
+}
+
+.chat-content .chat-foot {
+    padding: 4px;
+    border-top: 1px #d9d9d9 solid;
+}
+
+.chat-content .chat-foot span {
+    font-weight: bold;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.chat-content .chat-foot .form-control {
+    width: 310px;
+}

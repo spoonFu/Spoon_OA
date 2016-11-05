@@ -1,0 +1,46 @@
+@charset "utf-8";
+body {
+	padding-top: 80px;
+	padding-bottom: 40px;
+	background-color: #1f1f1f;
+}
+.form-signin .checkbox{
+	margin: 10px;
+}
+.form-signin {
+	background: url("../../imgs/body-bg.png");
+	padding: 20px;
+	margin: auto;
+	border-radius: 4px;
+}
+.form-signin .input-group{
+	margin: 10px;
+}
+.form-signin .form-signin-heading, .form-signin .checkbox {
+	margin-bottom: 10px;
+}
+
+.form-signin .form-control {
+	position: relative;
+	height: auto;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	box-sizing: border-box;
+	padding: 10px;
+	font-size: 16px;
+}
+.copyright{
+	margin: auto;
+	text-align: center;
+	font-size: 12px;
+}
+@media (max-width: 979px){
+	.form-signin{
+		width: 90%;
+	}
+}
+@media (min-width: 980px){
+	.form-signin{
+		max-width: 330px;
+	}
+}
