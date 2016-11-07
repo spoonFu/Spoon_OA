@@ -8,6 +8,7 @@ html {
 
 body {
     font-family: 'Microsoft YaHei' !important;
+    padding-top: 50px;
 }
 
 a {
@@ -160,7 +161,6 @@ a.normal:hover {
 
 /**************导航栏-结束******************/
 #wrapper {
-    margin-top: 50px;
     background-color: #272930;
 }
 

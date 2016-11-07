@@ -14,6 +14,7 @@
             <!-- 表单 -->
             <form id="modform" class="form-horizontal" modelAttribute="pojomodel" action="mod.do" method="post"
                   role="form">
+                <input type="hidden" name="id" value="${pojomodel.id}" />
                 <div class="form-group">
                     <label class="col-sm-2 control-label" for="name">姓名</label>
 
@@ -44,6 +45,24 @@
                         <input type="email" class="form-control" id="email" name="email" value="${pojomodel.email}" placeholder="邮箱"/>
                     </div>
                 </div>
+
+                <div class="form-group">
+                    <label class="col-sm-2 control-label" for="phone">头像</label>
+
+                    <div class="col-sm-4">
+                        <input type="text" class="form-control" id="icon" name="icon" value="${pojomodel.icon}" placeholder="头像"/>
+                    </div>
+                    <!-- 标题 -->
+                    <label class="col-sm-1 control-label" for="email">有效期</label>
+
+                    <div class="col-sm-4">
+                        <div class="input-group">
+                            <input type="text" class="form-control date-picker" id="deadline" name="deadline" value="${fn:substring(pojomodel.deadline, 0, 10)}" placeholder="有效期"/>
+                            <span class="input-group-btn"><button type="button" class="btn btn-default"><i class="fa fa-calendar"/></button> </span>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <div class="col-sm-1 col-sm-offset-10">
                         <a class="btn btn-primary form-control add-btn">提交</a>

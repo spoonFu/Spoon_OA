@@ -1,5 +1,7 @@
 package com.spoon.service;
 
+import com.spoon.dao.dialect.MyMySQLDialect;
+
 /**
  * 排序类
  * @author FuShaoxing E-mail: xinyu2010@126.com
@@ -44,5 +46,20 @@ public class MyOrder {
 
 	public void setChinese(boolean chinese) {
 		this.chinese = chinese;
+	}
+
+	/**
+	 * 生成sql语句，如“ name asc”、“ age desc”
+	 * @return
+	 */
+	public String getSql(){
+		final StringBuffer sql = new StringBuffer(" ");
+		if(chinese){
+			sql.append(MyMySQLDialect.CONVERT_GBK).append("(").append(field).append(")");
+		}else{
+			sql.append(field);
+		}
+		sql.append(asc ? " asc" : " desc");
+		return sql.toString();
 	}
 }

@@ -9,6 +9,7 @@
 <html>
 <head lang="en">
     <%@include file="/WEB-INF/jsp/common/stylesheet.jsp"%>
+    <link rel="stylesheet" href="${rootUrl}/asset/datePicker/bootstrap-datepicker3.css">
     <title>付小勺OA</title>
 </head>
 <body>
@@ -17,6 +18,7 @@
     <%@include file="/WEB-INF/jsp/common/sidebar.jsp" %>
     <div id="mainbody" class="container-fluid">
         <%@include file="/WEB-INF/jsp/common/bodyhead.jsp" %>
+
         <!-- 内容 -->
         <div id="content">
             <!-- 管理面板开始 -->
@@ -57,5 +59,10 @@
 <%@include file="/WEB-INF/jsp/common/webIm.jsp" %>
 <%@include file="/WEB-INF/jsp/common/footer.jsp" %>
 <script type="text/javascript" src="${rootUrl}asset/js/spoonpanel.js"></script>;
+<script type="text/javascript" src="${rootUrl}asset/datePicker/bootstrap-datepicker.min.js"></script>
+<script type="text/javascript" src="${rootUrl}asset/datePicker/bootstrap-datepicker.zh-CN.min.js"></script>
+<script type="text/javascript">
+    $('#test').datepicker();
+</script>
 </body>
 </html>

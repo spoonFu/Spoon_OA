@@ -10,9 +10,10 @@ import org.hibernate.type.StandardBasicTypes;
  * @version createTime：2014年11月16日 上午1:40:38
  */
 public class MyMySQLDialect extends MySQLDialect {
+    public static final String CONVERT_GBK = "convertgbk";
     @SuppressWarnings("deprecation")
     public MyMySQLDialect() {
         super();
-        registerFunction("convertgbk", new SQLFunctionTemplate(StandardBasicTypes.STRING, "convert(?1 using gbk)"));
+        registerFunction(CONVERT_GBK, new SQLFunctionTemplate(StandardBasicTypes.STRING, "convert(?1 using gbk)"));
     }
 }

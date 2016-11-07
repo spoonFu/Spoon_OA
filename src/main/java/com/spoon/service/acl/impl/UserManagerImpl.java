@@ -71,7 +71,7 @@ public class UserManagerImpl implements IUserManager {
     @Override
     public User update(User user) {
         User entity = findById(user.getId());
-        BeanUtils.copyProperties(user, entity, new String[]{"id", "username", "password"});
+        BeanUtils.copyProperties(user, entity, new String[]{"id", "username", "password", "lastlogin", "createtime", "locked", "enable", "dept_id"});
         userDao.update(entity);
         return findById(user.getId());
     }

@@ -232,7 +232,7 @@
             ajaxget(url, function (data) {
                 $("#content").append(data);
                 handleListener1();
-                //initDateTimePickers();
+                initDateTimePickers();
                 var resultpanel = $(spoonbtn).parents(".panel");
                 var orignheight = resultpanel.outerHeight();
                 var spoonheight = $(".spoon-panel").outerHeight();
@@ -336,9 +336,14 @@
 
     /**********初始化datepicker等时间选择器*********/
     function initDateTimePickers() {
-        if (!jQuery().daterangepicker)
-            return;
-        $('.date-picker').datepicker({autoclose: true}).next().click(function () {
+        var $dateForm =  $('.date-picker');
+        $dateForm.datepicker({
+            autoclose: true,
+            format: "yyyy-mm-dd",
+            language: "zh-CN",
+            todayHighlight: true
+        });
+        $dateForm.next().click(function () {
             $(this).prev().focus();
         });
     }

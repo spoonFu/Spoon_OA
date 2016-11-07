@@ -5,9 +5,12 @@ import com.spoon.dao.acl.IUserDao;
 import com.spoon.entity.acl.User;
 import com.spoon.model.Pagination;
 import com.spoon.condition.acl.UserCondition;
+import com.spoon.utils.TimeUtils;
+import org.apache.commons.lang.StringUtils;
 import org.springframework.stereotype.Repository;
 
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -18,8 +21,6 @@ import java.util.List;
  */
 @Repository("userDao")
 public class UserDaoImpl extends MyBaseDaoImpl<User> implements IUserDao {
-    SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-
     @Override
     public User findUserByLoginName(String loginName) {
         return (User) findByProperty("username", loginName);
@@ -28,13 +29,18 @@ public class UserDaoImpl extends MyBaseDaoImpl<User> implements IUserDao {
     @Override
     public void updateLastLogin(String id, Date date) {
         String sql = "update " + this.clazz.getName() + " set lastlogin=? where id=?";
-        getSession().createQuery(sql).setString(0, this.sdf.format(date)).setString(1, id).executeUpdate();
+        getSession().createQuery(sql).setString(0, TimeUtils.NORMAL_FORMAT.format(date)).setString(1, id).executeUpdate();
     }
 
     @Override
     public Pagination queryPage(UserCondition cond) {
         StringBuffer hql = new StringBuffer(" from " + this.clazz.getName() + " where 1=1");
-        Pagination page = queryPage(hql.toString(), new Object[0], cond);
+        final List<String> params = new ArrayList<String>();
+        if(StringUtils.isNotEmpty(cond.getName())){
+            params.add("%"+cond.getName()+"%");
+            hql.append(" and name like ?");
+        }
+        Pagination page = queryPage(hql.toString(), params.toArray(), cond);
         return page;
     }
 

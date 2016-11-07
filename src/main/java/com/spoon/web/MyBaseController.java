@@ -44,7 +44,7 @@ public class MyBaseController {
 
     /** 传往前台的pagination名称 */
     private String pagnname = "pagn";
-    /**  */
+    /** 字典名称 */
     private String dictname = "dict";
     /** 定义记录的order个数，多次点击排序时记录排序优先级 */
     private int maxOrderSize = 3;
@@ -56,7 +56,7 @@ public class MyBaseController {
      */
     protected User getCurrentUser() {
         if (SecurityContextHolder.getContext().getAuthentication().getPrincipal() instanceof String) {
-            logger.warn("当前没有用户登录！what happened????");
+            logger.warn("当前没有用户登录！");
             return null;
         }
         UserDetails userDetails = (UserDetails) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
